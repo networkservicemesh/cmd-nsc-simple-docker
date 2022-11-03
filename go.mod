@@ -5,12 +5,12 @@ go 1.18
 require (
 	git.fd.io/govpp.git v0.3.6-0.20210927044411-385ccc0d8ba9
 	github.com/antonfisher/nested-logrus-formatter v1.3.1
-	github.com/edwarnicke/govpp v0.0.0-20220509171552-731995b8f574
+	github.com/edwarnicke/govpp v0.0.0-20221023154218-ef9a6adf6930
 	github.com/edwarnicke/grpcfd v1.1.2
 	github.com/edwarnicke/vpphelper v0.0.0-20210617172001-3e6797de32c3
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/networkservicemesh/api v1.4.1-0.20220711153918-a59689088578
-	github.com/networkservicemesh/sdk v0.5.1-0.20221013082556-9ae27f8b63af
+	github.com/networkservicemesh/sdk v0.5.1-0.20221031083615-fac60b46dace
 	github.com/networkservicemesh/sdk-kernel v0.0.0-20221013082925-354d38e71cde
 	github.com/networkservicemesh/sdk-vpp v0.0.0-20221013083414-db9c967a253d
 	github.com/pkg/errors v0.9.1

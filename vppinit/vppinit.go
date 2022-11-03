@@ -32,6 +32,7 @@ import (
 	"github.com/edwarnicke/govpp/binapi/interface_types"
 	"github.com/edwarnicke/govpp/binapi/ip"
 	"github.com/edwarnicke/govpp/binapi/ip_neighbor"
+	"github.com/edwarnicke/govpp/binapi/vlib"
 	"github.com/pkg/errors"
 	"github.com/vishvananda/netlink"
 
@@ -66,6 +67,14 @@ func LinkToAfPacket(ctx context.Context, vppConn api.Connection, tunnelIP net.IP
 
 	if aclErr := denyAllACLToInterface(ctx, vppConn, swIfIndex); aclErr != nil {
 		return nil, aclErr
+	}
+
+	// Disable Router Advertisement on IPv6 tunnels
+	if tunnelIP.To4() == nil {
+		err = disableIPv6RA(ctx, vppConn, link)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	now := time.Now()
@@ -307,4 +316,35 @@ func linkByIP(ctx context.Context, ipaddress net.IP) (netlink.Link, error) {
 		}
 	}
 	return nil, nil
+}
+
+func disableIPv6RA(ctx context.Context, vppConn api.Connection, link netlink.Link) error {
+	cmds := []string{
+		fmt.Sprintf("enable ip6 interface host-%s", link.Attrs().Name),
+		fmt.Sprintf("ip6 nd host-%s ra-cease ra-suppress", link.Attrs().Name),
+	}
+	for _, cmd := range cmds {
+		now := time.Now()
+		var reply, err = vlib.NewServiceClient(vppConn).CliInband(ctx, &vlib.CliInband{
+			Cmd: cmd,
+		})
+
+		if err != nil {
+			log.FromContext(ctx).
+				WithField("interface", fmt.Sprintf("host-%s", link.Attrs().Name)).
+				WithField("duration", time.Since(now)).
+				WithField("cmd", cmd).
+				WithField("vppapi", "CliInband").Error(err)
+			return err
+		}
+
+		log.FromContext(ctx).
+			WithField("interface", fmt.Sprintf("host-%s", link.Attrs().Name)).
+			WithField("cmd", cmd).
+			WithField("reply", reply.Reply).
+			WithField("duration", time.Since(now)).
+			WithField("vppapi", "CliInband").Debug("completed")
+	}
+
+	return nil
 }
