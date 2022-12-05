@@ -320,7 +320,7 @@ func createForwarder(ctx context.Context, cancel context.CancelFunc, config *Con
 
 	/* Create registry-proxy */
 	serverRegistryProxy := grpc.NewServer(gRPCOptions...)
-	proxydns.NewServer(ctx, net.DefaultResolver, dialOptions...).Register(serverRegistryProxy)
+	proxydns.NewServer(ctx, spiffejwt.TokenGeneratorFunc(source, config.MaxTokenLifetime), net.DefaultResolver, proxydns.WithDialOptions(dialOptions...)).Register(serverRegistryProxy)
 
 	listenOnRegistryProxy := &url.URL{Scheme: "unix", Path: filepath.Join(os.TempDir(), registryProxySockName)}
 	srvErrChReg := grpcutils.ListenAndServe(ctx, listenOnRegistryProxy, serverRegistryProxy)
