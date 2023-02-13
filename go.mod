@@ -10,9 +10,9 @@ require (
 	github.com/edwarnicke/vpphelper v0.0.0-20210617172001-3e6797de32c3
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/networkservicemesh/api v1.7.2-0.20230123083145-4a6c3ec589e1
-	github.com/networkservicemesh/sdk v0.5.1-0.20230207140036-c1a6ac439d7f
-	github.com/networkservicemesh/sdk-kernel v0.0.0-20230207140346-0af6111f80ca
-	github.com/networkservicemesh/sdk-vpp v0.0.0-20230207140956-bccaff74eb3b
+	github.com/networkservicemesh/sdk v0.5.1-0.20230213134519-3aa9aa0d5e1b
+	github.com/networkservicemesh/sdk-kernel v0.0.0-20230213141018-c280bc6ee279
+	github.com/networkservicemesh/sdk-vpp v0.0.0-20230213142924-f83ab06a3e97
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spiffe/go-spiffe/v2 v2.1.0
@@ -66,9 +66,9 @@ require (
 	go.opentelemetry.io/otel/trace v1.9.0 // indirect
 	go.opentelemetry.io/proto/otlp v0.19.0 // indirect
 	golang.org/x/crypto v0.0.0-20220829220503-c86fa9a7ed90 // indirect
-	golang.org/x/net v0.4.0 // indirect
-	golang.org/x/sys v0.3.0 // indirect
-	golang.org/x/text v0.5.0 // indirect
+	golang.org/x/net v0.5.0 // indirect
+	golang.org/x/sys v0.4.0 // indirect
+	golang.org/x/text v0.6.0 // indirect
 	golang.zx2c4.com/wireguard/wgctrl v0.0.0-20200609130330-bd2cb7843e1b // indirect
 	google.golang.org/genproto v0.0.0-20220908141613-51c1cc9bc6d0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
