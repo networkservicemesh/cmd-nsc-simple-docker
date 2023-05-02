@@ -9,10 +9,10 @@ require (
 	github.com/edwarnicke/grpcfd v1.1.2
 	github.com/edwarnicke/vpphelper v0.0.0-20210617172001-3e6797de32c3
 	github.com/kelseyhightower/envconfig v1.4.0
-	github.com/networkservicemesh/api v1.7.2-0.20230123083145-4a6c3ec589e1
-	github.com/networkservicemesh/sdk v0.5.1-0.20230501005204-6fa2f68d5532
-	github.com/networkservicemesh/sdk-kernel v0.0.0-20230501005646-bfd86b518964
-	github.com/networkservicemesh/sdk-vpp v0.0.0-20230502013652-8471f7f9634d
+	github.com/networkservicemesh/api v1.9.0-rc.1
+	github.com/networkservicemesh/sdk v1.9.0-rc.1
+	github.com/networkservicemesh/sdk-kernel v1.9.0-rc.1
+	github.com/networkservicemesh/sdk-vpp v1.9.0-rc.1
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spiffe/go-spiffe/v2 v2.1.0
