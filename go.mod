@@ -12,7 +12,7 @@ require (
 	github.com/networkservicemesh/api v1.7.2-0.20230123083145-4a6c3ec589e1
 	github.com/networkservicemesh/sdk v0.5.1-0.20230518132831-ad70c1f00af9
 	github.com/networkservicemesh/sdk-kernel v0.0.0-20230619140403-8f248dc329bc
-	github.com/networkservicemesh/sdk-vpp v0.0.0-20230619142410-ce2e514e2a71
+	github.com/networkservicemesh/sdk-vpp v0.0.0-20230619140952-19e1f393a812
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spiffe/go-spiffe/v2 v2.1.0
