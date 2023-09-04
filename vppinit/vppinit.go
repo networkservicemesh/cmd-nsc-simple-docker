@@ -25,9 +25,9 @@ import (
 	"net"
 	"time"
 
-	"git.fd.io/govpp.git/api"
 	"github.com/pkg/errors"
 	"github.com/vishvananda/netlink"
+	"go.fd.io/govpp/api"
 
 	"github.com/networkservicemesh/govpp/binapi/af_packet"
 	"github.com/networkservicemesh/govpp/binapi/fib_types"
