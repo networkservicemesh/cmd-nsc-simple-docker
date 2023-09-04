@@ -3,20 +3,20 @@ module github.com/networkservicemesh/cmd-nsc-simple-docker
 go 1.20
 
 require (
-	git.fd.io/govpp.git v0.3.6-0.20210927044411-385ccc0d8ba9
 	github.com/antonfisher/nested-logrus-formatter v1.3.1
 	github.com/edwarnicke/grpcfd v1.1.2
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/networkservicemesh/api v1.10.1-0.20230822145124-c4a3ece88804
-	github.com/networkservicemesh/govpp v0.0.0-20230630105900-092690d52a97
+	github.com/networkservicemesh/govpp v0.0.0-20230901132304-614d6d6fb8a6
 	github.com/networkservicemesh/sdk v0.5.1-0.20230828163119-f96fdf637a63
 	github.com/networkservicemesh/sdk-kernel v0.0.0-20230829144358-77e8a631e818
-	github.com/networkservicemesh/sdk-vpp v0.0.0-20230829144755-51305e3ca61e
-	github.com/networkservicemesh/vpphelper v0.0.0-20230721124411-38a0b7426972
+	github.com/networkservicemesh/sdk-vpp v0.0.0-20230904082310-8a9c97efea32
+	github.com/networkservicemesh/vpphelper v0.0.0-20230901145133-a14aecebd1cb
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spiffe/go-spiffe/v2 v2.1.0
 	github.com/vishvananda/netlink v1.2.1-beta.2.0.20220630165224-c591ada0fb2b
+	go.fd.io/govpp v0.8.0
 	google.golang.org/grpc v1.55.0
 )
 
