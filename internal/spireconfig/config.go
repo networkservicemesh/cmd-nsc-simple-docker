@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Cisco and/or its affiliates.
+// Copyright (c) 2022-2023 Cisco and/or its affiliates.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -53,7 +53,8 @@ plugins {
     data_dir = "%[1]s/data"
     log_level = "WARN"
     ca_key_type = "rsa-2048"
-    default_svid_ttl = "1h"
+    default_x509_svid_ttl = "1h"
+    default_jwt_svid_ttl = "1h"
     ca_subject = {
         country = ["US"],
         organization = ["SPIFFE"],
