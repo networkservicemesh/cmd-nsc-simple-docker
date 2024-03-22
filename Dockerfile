@@ -8,9 +8,9 @@ ENV GOBIN=/bin
 ARG BUILDARCH=amd64
 RUN rm -r /etc/vpp
 RUN go install github.com/go-delve/delve/cmd/dlv@v1.21.0
-ADD https://github.com/spiffe/spire/releases/download/v1.8.6/spire-1.8.6-linux-${BUILDARCH}-musl.tar.gz .
+ADD https://github.com/spiffe/spire/releases/download/v1.9.1/spire-1.9.1-linux-${BUILDARCH}-musl.tar.gz .
 ADD https://github.com/coredns/coredns/releases/download/v1.11.1/coredns_1.11.1_linux_${BUILDARCH}.tgz .
-RUN tar xzvf spire-1.8.6-linux-${BUILDARCH}-musl.tar.gz -C /bin --strip=2 spire-1.8.6/bin/spire-server spire-1.8.6/bin/spire-agent
+RUN tar xzvf spire-1.9.1-linux-${BUILDARCH}-musl.tar.gz -C /bin --strip=2 spire-1.9.1/bin/spire-server spire-1.9.1/bin/spire-agent
 RUN tar xzvf coredns_1.11.1_linux_${BUILDARCH}.tgz -C /bin coredns
 
 FROM go as build
