@@ -10,7 +10,7 @@ require (
 	github.com/networkservicemesh/govpp v0.0.0-20240328101142-8a444680fbba
 	github.com/networkservicemesh/sdk v0.5.1-0.20240405103106-edee168c48df
 	github.com/networkservicemesh/sdk-kernel v0.0.0-20240405103539-cf3b1676a8b2
-	github.com/networkservicemesh/sdk-vpp v0.0.0-20240405112457-89fcb22ad940
+	github.com/networkservicemesh/sdk-vpp v0.0.0-20240405133609-903fd936802f
 	github.com/networkservicemesh/vpphelper v0.0.0-20240115135903-e2b961f768b6
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.3
@@ -58,7 +58,6 @@ require (
 	github.com/prometheus/procfs v0.11.1 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
 	github.com/tchap/go-patricia/v2 v2.3.1 // indirect
-	github.com/thanhpk/randstr v1.0.4 // indirect
 	github.com/vishvananda/netns v0.0.4 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
