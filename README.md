@@ -16,6 +16,22 @@ You can build the docker container by running:
 docker build .
 ```
 
+# Usage
+
+## Environment config
+
+* `NSM_NAME`               - Name of docker client
+* `NSM_REQUEST_TIMEOUT`    - timeout to request NSE
+* `NSM_CONNECT_TO`         - url to connect to
+* `NSM_DIAL_TIMEOUT`       - timeout to dial
+* `NSM_MAX_TOKEN_LIFETIME` - maximum lifetime of tokens
+* `NSM_TUNNEL_IP`          - IP to use for tunnels
+* `NSM_LABELS`             - A list of client labels with format key1=val1,key2=val2, will be used a primary list for network services
+* `NSM_NETWORK_SERVICES`   - A list of Network Service Requests
+* `NSM_FEDERATES_WITH`     - Name of the federated domain
+* `NSM_TRUST_DOMAIN`       - Name of the trust domain
+* `NSM_LOG_LEVEL`          - Log level
+
 # Testing
 
 ## Testing Docker container

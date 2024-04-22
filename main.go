@@ -89,8 +89,8 @@ type Config struct {
 	Labels          []string  `default:"" desc:"A list of client labels with format key1=val1,key2=val2, will be used a primary list for network services" split_words:"true"`
 	NetworkServices []url.URL `default:"" desc:"A list of Network Service Requests" split_words:"true"`
 
-	FederatesWith string `default:"k8s.nsm" desc:"Name of the federated domain"`
-	TrustDomain   string `default:"docker.nsm" desc:"Name of the trust domain"`
+	FederatesWith string `default:"k8s.nsm" desc:"Name of the federated domain" split_words:"true"`
+	TrustDomain   string `default:"docker.nsm" desc:"Name of the trust domain" split_words:"true"`
 	LogLevel      string `default:"INFO" desc:"Log level" split_words:"true"`
 }
 
