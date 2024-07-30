@@ -6,11 +6,11 @@ require (
 	github.com/antonfisher/nested-logrus-formatter v1.3.1
 	github.com/edwarnicke/grpcfd v1.1.4
 	github.com/kelseyhightower/envconfig v1.4.0
-	github.com/networkservicemesh/api v1.13.1-0.20240424210452-d0df98851760
+	github.com/networkservicemesh/api v1.13.3
 	github.com/networkservicemesh/govpp v0.0.0-20240328101142-8a444680fbba
-	github.com/networkservicemesh/sdk v0.5.1-0.20240712105720-c0bcf8861192
-	github.com/networkservicemesh/sdk-kernel v0.0.0-20240712110001-ef58a1a58a45
-	github.com/networkservicemesh/sdk-vpp v0.0.0-20240712110554-c3584ca6b265
+	github.com/networkservicemesh/sdk v1.13.3
+	github.com/networkservicemesh/sdk-kernel v1.13.3
+	github.com/networkservicemesh/sdk-vpp v1.13.3
 	github.com/networkservicemesh/vpphelper v0.0.0-20240115135903-e2b961f768b6
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.3
