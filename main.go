@@ -1,4 +1,4 @@
-// Copyright (c) 2022-2023 Cisco and/or its affiliates.
+// Copyright (c) 2022-2024 Cisco and/or its affiliates.
 //
 // Copyright (c) 2024 OpenInfra Foundation Europe. All rights reserved.
 //
@@ -62,6 +62,7 @@ import (
 	"github.com/networkservicemesh/sdk/pkg/tools/log"
 	"github.com/networkservicemesh/sdk/pkg/tools/log/logruslogger"
 	"github.com/networkservicemesh/sdk/pkg/tools/nsurl"
+	"github.com/networkservicemesh/sdk/pkg/tools/pprofutils"
 	"github.com/networkservicemesh/sdk/pkg/tools/spiffejwt"
 	"github.com/networkservicemesh/sdk/pkg/tools/spire"
 	"github.com/networkservicemesh/sdk/pkg/tools/token"
@@ -94,6 +95,9 @@ type Config struct {
 	FederatesWith string `default:"k8s.nsm" desc:"Name of the federated domain" split_words:"true"`
 	TrustDomain   string `default:"docker.nsm" desc:"Name of the trust domain" split_words:"true"`
 	LogLevel      string `default:"INFO" desc:"Log level" split_words:"true"`
+
+	PprofEnabled  bool   `default:"false" desc:"is pprof enabled" split_words:"true"`
+	PprofListenOn string `default:"localhost:6060" desc:"pprof URL to ListenAndServe" split_words:"true"`
 }
 
 // Process prints and processes env to config
@@ -178,6 +182,11 @@ func main() {
 		log.FromContext(ctx).Fatalf("invalid log level %s", config.LogLevel)
 	}
 	logrus.SetLevel(level)
+
+	// Configure pprof
+	if config.PprofEnabled {
+		go pprofutils.ListenAndServe(ctx, config.PprofListenOn)
+	}
 
 	// ********************************************************************************
 	log.FromContext(ctx).Infof("executing phase 2: run vpp and get a connection to it")
