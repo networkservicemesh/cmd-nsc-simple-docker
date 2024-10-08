@@ -1,6 +1,6 @@
 ARG VPP_VERSION=v23.10-rc0-170-g806b14eeb
 FROM ghcr.io/networkservicemesh/govpp/vpp:${VPP_VERSION} as go
-COPY --from=golang:1.20.12 /usr/local/go/ /go
+COPY --from=golang:1.23.1 /usr/local/go/ /go
 ENV PATH ${PATH}:/go/bin
 ENV GO111MODULE=on
 ENV CGO_ENABLED=0
@@ -8,9 +8,9 @@ ENV GOBIN=/bin
 ARG BUILDARCH=amd64
 RUN rm -r /etc/vpp
 RUN go install github.com/go-delve/delve/cmd/dlv@v1.21.0
-ADD https://github.com/spiffe/spire/releases/download/v1.9.3/spire-1.9.3-linux-${BUILDARCH}-musl.tar.gz .
+ADD https://github.com/spiffe/spire/releases/download/v1.10.3/spire-1.10.3-linux-${BUILDARCH}-musl.tar.gz .
 ADD https://github.com/coredns/coredns/releases/download/v1.11.1/coredns_1.11.1_linux_${BUILDARCH}.tgz .
-RUN tar xzvf spire-1.9.3-linux-${BUILDARCH}-musl.tar.gz -C /bin --strip=2 spire-1.9.3/bin/spire-server spire-1.9.3/bin/spire-agent
+RUN tar xzvf spire-1.10.3-linux-${BUILDARCH}-musl.tar.gz -C /bin --strip=2 spire-1.10.3/bin/spire-server spire-1.10.3/bin/spire-agent
 RUN tar xzvf coredns_1.11.1_linux_${BUILDARCH}.tgz -C /bin coredns
 
 FROM go as build
