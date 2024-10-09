@@ -182,6 +182,10 @@ func main() {
 		log.FromContext(ctx).Fatalf("invalid log level %s", config.LogLevel)
 	}
 	logrus.SetLevel(level)
+	logruslogger.SetupLevelChangeOnSignal(ctx, map[os.Signal]logrus.Level{
+		syscall.SIGUSR1: logrus.TraceLevel,
+		syscall.SIGUSR2: level,
+	})
 
 	// Configure pprof
 	if config.PprofEnabled {
