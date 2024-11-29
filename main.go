@@ -40,6 +40,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
 	"github.com/spiffe/go-spiffe/v2/workloadapi"
+	"go.fd.io/govpp/api"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
@@ -321,7 +322,7 @@ func main() {
 	<-vppErrCh
 }
 
-func createForwarder(ctx context.Context, cancel context.CancelFunc, config *Config, vppConn vpphelper.Connection, source *workloadapi.X509Source, tlsServerConfig *tls.Config, dialOptions ...grpc.DialOption) *url.URL {
+func createForwarder(ctx context.Context, cancel context.CancelFunc, config *Config, vppConn api.Connection, source *workloadapi.X509Source, tlsServerConfig *tls.Config, dialOptions ...grpc.DialOption) *url.URL {
 	gRPCOptions := append(
 		tracing.WithTracing(),
 		grpc.Creds(
