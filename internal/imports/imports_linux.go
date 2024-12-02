@@ -44,6 +44,7 @@ import (
 	_ "github.com/networkservicemesh/sdk/pkg/tools/token"
 	_ "github.com/networkservicemesh/sdk/pkg/tools/tracing"
 	_ "github.com/networkservicemesh/vpphelper"
+	_ "github.com/networkservicemesh/vpphelper/extendtimeout"
 	_ "github.com/pkg/errors"
 	_ "github.com/sirupsen/logrus"
 	_ "github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
