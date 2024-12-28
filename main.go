@@ -40,10 +40,12 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
 	"github.com/spiffe/go-spiffe/v2/workloadapi"
+	"go.fd.io/govpp/api"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
 	"github.com/networkservicemesh/vpphelper"
+	"github.com/networkservicemesh/vpphelper/extendtimeout"
 
 	"github.com/networkservicemesh/api/pkg/api/networkservice"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/chains/client"
@@ -98,6 +100,8 @@ type Config struct {
 
 	PprofEnabled  bool   `default:"false" desc:"is pprof enabled" split_words:"true"`
 	PprofListenOn string `default:"localhost:6060" desc:"pprof URL to ListenAndServe" split_words:"true"`
+
+	VPPMinOperationTimeout time.Duration `default:"2s" desc:"minimum timeout for every vpp operation" split_words:"true"`
 }
 
 // Process prints and processes env to config
@@ -203,6 +207,7 @@ func main() {
 		<-vppErrCh
 	}()
 	config.TunnelIP = vppinit.Must(vppinit.LinkToAfPacket(ctx, vppConn, config.TunnelIP))
+	vppConn = extendtimeout.NewConnection(vppConn, config.VPPMinOperationTimeout)
 
 	// ********************************************************************************
 	log.FromContext(ctx).Info("executing phase 3: start spire-server and spire-agent")
@@ -321,7 +326,7 @@ func main() {
 	<-vppErrCh
 }
 
-func createForwarder(ctx context.Context, cancel context.CancelFunc, config *Config, vppConn vpphelper.Connection, source *workloadapi.X509Source, tlsServerConfig *tls.Config, dialOptions ...grpc.DialOption) *url.URL {
+func createForwarder(ctx context.Context, cancel context.CancelFunc, config *Config, vppConn api.Connection, source *workloadapi.X509Source, tlsServerConfig *tls.Config, dialOptions ...grpc.DialOption) *url.URL {
 	gRPCOptions := append(
 		tracing.WithTracing(),
 		grpc.Creds(
